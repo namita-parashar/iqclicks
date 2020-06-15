@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserOrgAssets extends Model
 {
     //
+    protected $table = 'user_org_assets';
 }

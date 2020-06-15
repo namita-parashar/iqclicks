@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Workspace extends Model
 {
     //
+    protected $table ='workspaces';
 }

@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class MemberAssets extends Model
 {
     //
+    protected $table = 'workspace_tracker_member_assets';
 }
