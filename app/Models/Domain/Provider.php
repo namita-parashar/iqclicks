@@ -21,5 +21,8 @@ class Provider extends Model
     public function domain(){
         return $this->belongsTo('App/Models/Domain\Provider');
     }
+    public function integrations(){
+        return $this->morphToMany('App\Models\Integration\Integration','applicable');
+    }
 
 }

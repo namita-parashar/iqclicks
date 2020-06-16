@@ -16,4 +16,8 @@ class State extends Model
     public function city(){
         return $this->belongsTo('App\Models\City');
     }
+
+    public function offers(){
+        return $this->morphToMany('App\Models\State','applicable');
+    }
 }

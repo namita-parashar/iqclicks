@@ -12,4 +12,7 @@ class Languages extends Model
     public function countryLangugaes(){
         return $this->belongsToMany('App\Models\Country\Country','country_language','language_id','country_id');
     }
+    public function offers(){
+        return $this->morphToMany('App\Models\Languages','applicable');
+    }
 }

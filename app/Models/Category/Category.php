@@ -12,4 +12,7 @@ class Category extends Model
     public function categoryOffers(){
         return $this->hasMany('App\Model\Category\Offers');
     }
+    public function websites(){
+        return $this->morphToMany('App\Models\Website\Website','relatable');
+    }
 }
