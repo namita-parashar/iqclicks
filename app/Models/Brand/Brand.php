@@ -9,7 +9,7 @@ class Brand extends Model
     //
     protected $table='brands';
 
-    public function models(){
-        return $this->hasMany('App\Models\Brand\Models');
+    public function model(){
+        return $this->belongsTo('App\Models\Brand\Models');
     }
 }

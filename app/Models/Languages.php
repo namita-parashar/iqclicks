@@ -9,8 +9,9 @@ class Languages extends Model
     //
     protected $table = 'languages';
 
-    public function countryLangugaes(){
-        return $this->belongsToMany('App\Models\Country\Country','country_language','language_id','country_id');
+    public function countries(){
+        // return $this->belongsToMany('App\Models\Country\Country','country_language','language_id','country_id');
+        return $this->belongsToMany('App\Models\Location\Country');
     }
     public function offers(){
         return $this->morphToMany('App\Models\Languages','applicable');

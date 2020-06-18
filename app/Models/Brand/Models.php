@@ -9,8 +9,8 @@ class Models extends Model
     //
     protected $table='brand_models';
 
-    public function brand(){
-        return $this->belongsTo('App\Models\Brand\Brand');
+    public function brands(){
+        return $this->hasMany('App\Models\Brand\Brand');
     }
 
 }

@@ -9,7 +9,7 @@ class Parameters extends Model
     //
     protected $table = 'traffic_source_parameters';
 
-    public function trafficsource(){
-        return $this->belongsTo('App\Models\TrafficSource\TrafficSource');
+    public function trafficsources(){
+        return $this->hasMany('App\Models\TrafficSource\TrafficSource');
     }
 }

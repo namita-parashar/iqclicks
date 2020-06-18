@@ -9,7 +9,7 @@ class NetworkParameters extends Model
     //
     protected $table = 'affiliate_network_parameters';
 
-    public function affiliatenetwork(){
-        return $this->belongsTo('App\Models\Affiliate\Network');
+    public function affiliatenetworks(){
+        return $this->hasMany('App\Models\Affiliate\Network');
     }
 }

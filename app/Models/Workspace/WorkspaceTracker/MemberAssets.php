@@ -9,7 +9,7 @@ class MemberAssets extends Model
     //
     protected $table = 'workspace_tracker_member_assets';
 
-    public function user(){
-        return $this->belongsTo('App\User');
+    public function users(){
+        return $this->hasMany('App\User');
     }
 }

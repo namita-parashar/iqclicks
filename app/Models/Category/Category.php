@@ -9,8 +9,8 @@ class Category extends Model
     //
     protected $table = 'category';
     
-    public function categoryOffers(){
-        return $this->hasMany('App\Model\Category\Offers');
+    public function affiliateOffers(){
+        return $this->belongsToMany('App\Models\Category\Offers');
     }
     public function websites(){
         return $this->morphToMany('App\Models\Website\Website','relatable');

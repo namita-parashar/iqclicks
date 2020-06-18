@@ -10,18 +10,18 @@ class Provider extends Model
     protected $table = 'domain_provider';
 
     public function contact(){
-        return $this->belongsTo('App/Models/Contacts');
+        return $this->belongsTo('App\Models\Resources\Contacts');
     }
-    public function paymentProfile(){
-        return $this->belongsTo('App/Models/Accounting/PaymentProfile');
+    public function paymentProfiles(){
+        return $this->hasMany('Apo\Models\Accounting\PaymentProfile');
     }
     public function integrations(){
-        return $this->belongsToMany('App/Models/Integration/Integration');
+        return $this->belongsToMany('App\Models\Integration\Integration');
     }
     public function domain(){
-        return $this->belongsTo('App/Models/Domain\Provider');
+        return $this->belongsTo('App\Models\Domain\Provider');
     }
-    public function integrations(){
+    public function integrationsTokens(){
         return $this->morphToMany('App\Models\Integration\Integration','applicable');
     }
 

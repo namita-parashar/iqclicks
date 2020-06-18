@@ -13,7 +13,7 @@ class Offers extends Model
         return $this->hasMany('App\Model\NetworkParameters');
     }
     public function countries(){
-        return $this->morphedByMany('App\Models\Country\Country','applicable');
+        return $this->morphedByMany('App\Models\Location\Country','applicable');
     }
     public function devices(){
         return $this->morphedByMany('App\Models\Device','applicable');
@@ -35,5 +35,8 @@ class Offers extends Model
     }
     public function trackerPaths(){
         return $this->morphToMany('App\Models\Tracker\Path','linkable');
+    }
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category\Category');
     }
 }

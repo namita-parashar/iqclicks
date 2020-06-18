@@ -9,16 +9,19 @@ class Books extends Model
     //
     protected $table = 'accounting_books';
 
-    public function accountingHead(){
-        return $this->belongsTo('App\Models\Accounting\Heads');
+    public function bankAccounts(){
+        return $this->hasMany('App\Models\Accounting\Heads');
     }
-    public function accountingCompany(){
-        return $this->belongsTo('App\Models\Accounting\Companies');
+    public function accountingHeads(){
+        return $this->hasMany('App\Models\Accounting\Heads');
     }
-    public function invoice(){
-        return $this->belongsTo('App\Models\Accounting\Invoices');
+    public function accountingCompanies(){
+        return $this->hasMany('App\Models\Accounting\Companies');
     }
-    public function attachment(){
-        return $this->belongsTo('App\Models\Accounting\Attachment');
+    public function invoices(){
+        return $this->hasMany('App\Models\Accounting\Invoices');
+    }
+    public function attachments(){
+        return $this->hasMany('App\Models\Accounting\Attachment');
     }
 }

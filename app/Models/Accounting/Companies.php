@@ -9,20 +9,20 @@ class Companies extends Model
     //
     protected $table = 'accounting_companies';
 
-    public function invoices(){
-        return $this->hasMany('App\Models\Accounting\Invoices');
+    public function invoice(){
+        return $this->belongsTo('App\Models\Accounting\Invoices');
     }
-    public function bankAccounts(){
-        return $this->hasMany('App\Models\Accounting\BankAccounts');
+    public function bankAccount(){
+        return $this->belongsTo('App\Models\Accounting\BankAccounts');
     }
-    public function accountingBooks(){
-        return $this->hasMany('App\Models\Accounting\Books');
+    public function accountingBook(){
+        return $this->belongsTo('App\Models\Accounting\Books');
     }
-    public function agency(){
-        return $this->belongsTo('App\Models\Agencies');
+    public function agencies(){
+        return $this->hasMany('App\Models\Agencies');
     }
-    public function autoAccountingHeads(){
-        return $this->hasMany('App\Models\Accounting\AutoAccountingHeads');
+    public function autoAccountingHead(){
+        return $this->belongsTo('App\Models\Accounting\AutoAccountingHeads');
     }
 }
 

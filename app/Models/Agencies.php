@@ -12,33 +12,32 @@ class Agencies extends Model
     public function affiliateAccount(){
         return $this->belongsTo('App\Models\Affiliate\Accounts','agency_id');
     }
-
     public function trafficSourceAccount(){
         return $this->belongsTo('App\Models\TrafficSource\TrafficSource','agency_id');
     }
-    public function departments(){
-        return $this->hasMany('App\Models\Departments');
+    public function department(){
+        return $this->belongsTo('App\Models\Resources\Departments');
     }
-    public function designations(){
-        return $this->hasMany('App\Models\Designations');
+    public function designation(){
+        return $this->belongsTo('App\Models\Resources\Designations');
     }
-    public function workspaces(){
-        return $this->hasMany('App\Models\Workspace\Workspace');
+    public function workspace(){
+        return $this->belongsTo('App\Models\Workspace\Workspace');
     }
-    public function teams(){
-        return $this->hasMany('App\Models\Teams');
+    public function team(){
+        return $this->belongsTo('App\Models\Resources\Teams');
     }
-    public function billingInformations(){
-        return $this->hasMany('App\Models\BillingInformation');
+    public function billingInformation(){
+        return $this->belongsTo('App\Models\Accounting\BillingInformation');
     }
-    public function accountingHeads(){
-        return $this->hasMany('App\Models\Accounting\Heads');
+    public function accountingHead(){
+        return $this->belongsTo('App\Models\Accounting\Heads');
     }
-    public function accountingCompanies(){
-        return $this->hasMany('App\Models\Accounting\Companies');
+    public function accountingCompany(){
+        return $this->belongsTo('App\Models\Accounting\Companies');
     }
-    public function autoAccountingHeads(){
-        return $this->hasMany('App\Models\Accounting\AutoAccountingHeads');
+    public function autoAccountingHead(){
+        return $this->belongsTo('App\Models\Accounting\AutoAccountingHeads');
     }
     public function users(){
         return $this->morphToMany('App\User','assetable');

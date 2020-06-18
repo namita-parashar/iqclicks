@@ -8,6 +8,7 @@ class Device extends Model
 {
     //
     protected $table = 'devices';
+    
     public function offers(){
         return $this->morphToMany('App\Models\Device','applicable');
     }

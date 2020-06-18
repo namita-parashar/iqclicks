@@ -8,8 +8,15 @@ class Flows extends Model
 {
     //
     protected $table = 'tracker_flows';
-    public function trackerCampaigns(){
-        return $this->hasMany('App\Models\Tracker\Campaigns');
+    
+    public function trackerCampaign(){
+        return $this->belongsTo('App\Models\Tracker\Campaigns');
+    }
+    public function trackerLanders(){
+        return $this->hasMany('App\Models\Tracker\Landers');
+    }
+    public function workspaces(){
+        return $this->hasMany('App\Models\Workspace\Workspace');
     }
     public function trackerRules()
     {

@@ -18,5 +18,8 @@ class Domain extends Model
     public function trackerCampaigns(){
         return $this->hasMany('App\Models\Tracker\Campaigns');
     }
+    public function domainProviders(){
+        return $this->hasMany('App\Models\Domains\Provider');
+    }
     
 }

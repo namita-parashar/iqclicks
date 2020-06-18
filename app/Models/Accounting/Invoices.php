@@ -9,19 +9,19 @@ class Invoices extends Model
     //
     protected $table = 'invoices';
 
-    public function company(){
-        return $this->belongsTo('App\Models\Accounting\Companies');
+    public function companies(){
+        return $this->hasMany('App\Models\Accounting\Companies');
     }
-    public function paymentProfile(){
-        return $this->belongsTo('App\Models\Accounting\PaymentProfile');
+    public function paymentProfiles(){
+        return $this->hasMany('App\Models\Accounting\PaymentProfile');
     }
-    public function bankAccount(){
-        return $this->belongsTo('App\Models\Accounting\BankAccounts');
+    public function bankAccounts(){
+        return $this->hasMany('App\Models\Accounting\BankAccounts');
     }
-    public function attachment(){
-        return $this->belongsTo('App\Models\Accounting\Attachment');
+    public function attachments(){
+        return $this->hasMany('App\Models\Accounting\Attachment');
     }
-    public function accountingBooks(){
-        return $this->hasMany('App\Models\Accounting\Books');
+    public function accountingBook(){
+        return $this->belongsTo('App\Models\Accounting\Books');
     }
 }

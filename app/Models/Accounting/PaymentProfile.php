@@ -9,16 +9,16 @@ class PaymentProfile extends Model
     //
     protected $table = 'payment_profile';
 
-    public function domainProviders(){
-        return $this->hasMany('App/Models/Domain/Provider');
+    public function domainProvider(){
+        return $this->belongsTo('App/Models/Domain/Provider');
     }
     public function trafficSourceAccount(){
         return $this->belongsTo('App\Models\TrafficSource\TrafficSource','payment_profile_id');
     }
-    public function invoices(){
-        return $this->hasMany('App\Models\Accounting\Invoices');
+    public function invoice(){
+        return $this->belongsTo('App\Models\Accounting\Invoices');
     }
-    public function bankAccount(){
-        return $this->belongsTo('App\Models\Accounting\BankAccounts');
+    public function bankAccounts(){
+        return $this->hasMany('App\Models\Accounting\BankAccounts');
     }
 }

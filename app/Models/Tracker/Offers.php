@@ -9,11 +9,15 @@ class Offers extends Model
     //
     protected $table = 'tracker_offers';
 
-    public function country(){
-        return $this->belongsTo('App\Models\Country\Country');
+    public function countries(){
+        return $this->hasMany('App\Models\Location\Country');
     }
-    public function affiliateAccountOfferReferers(){
-        return $this->hasMany('App\Models\Affiliate\AccountOfferReferer');
+    public function trackerAffiliateNetworks(){
+        return $this->hasMany('App\Models\Tracker\AffiliateNetwork');
+    }
+    public function affiliateAccounts()
+    {
+        return $this->belongsToMany('App\Models\Tracker\Landers','affiliate_account_offer_referer','affiliate_account_id','lander_id');
     }
     public function workspaces(){
         return $this->morphToMany('App\Models\Workspace\Workspace','assetable');

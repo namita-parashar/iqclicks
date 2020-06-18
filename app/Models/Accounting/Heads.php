@@ -9,10 +9,13 @@ class Heads extends Model
     //
     protected $table = 'accounting_heads';
 
-    public function agency(){
-        return $this->belongsTo('App\Models\Agencies');
+    public function agencies(){
+        return $this->hasMany('App\Models\Agencies');
     }
-    public function autoAccountingHeads(){
-        return $this->hasMany('App\Models\Accounting\AutoAccountingHeads');
+    public function autoAccountingHead(){
+        return $this->belongsTo('App\Models\Accounting\AutoAccountingHeads');
+    }
+    public function accountingBook(){
+        return $this->belongsTo('App\Models\Accounting\Books');
     }
 }

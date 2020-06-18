@@ -9,13 +9,10 @@ class Attachment extends Model
     //
     protected $table = 'attachment';
     
-    public function invoices(){
-        return $this->hasMany('App\Models\Accounting\Invoices');
+    public function invoice(){
+        return $this->belongsTo('App\Models\Accounting\Invoices');
     }
-    public function accountingBooks(){
-        return $this->hasMany('App\Models\Accounting\Books');
-    }
-    public function accountingBooks(){
-        return $this->hasMany('App\Models\Accounting\Books');
+    public function accountingBook(){
+        return $this->belongsTo('App\Models\Accounting\Books');
     }
 }

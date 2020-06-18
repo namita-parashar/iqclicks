@@ -37,8 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function workspaceTrackerMemberAssets(){
-        return $this->hasMany('App\Models\Workspace\WorkspaceTracker\MemberAssets');
+    public function workspaceTrackerMemberAsset(){
+        return $this->belongsTo('App\Models\Workspace\WorkspaceTracker\MemberAssets');
     }
     public function affiliateNetworks(){
         return $this->morphedByMany('App\Models\Affiliate\Network','assetable');
@@ -62,21 +62,21 @@ class User extends Authenticatable
         return $this->morphedByMany('App\Models\Agencies','assetable');
     }
     public function departments(){
-        return $this->morphedByMany('App\Models\Departments','assetable');
+        return $this->morphedByMany('App\Models\Resources\Departments','assetable');
     }
     public function designations(){
-        return $this->morphedByMany('App\Models\Designations','assetable');
+        return $this->morphedByMany('App\Models\Resources\Designations','assetable');
     }
     public function teams(){
-        return $this->morphedByMany('App\Models\Teams','assetable');
+        return $this->morphedByMany('App\Models\Resources\Teams','assetable');
     }
     public function billingInformation(){
-        return $this->morphedByMany('App\Models\BillingInformation','assetable');
+        return $this->morphedByMany('App\Models\Accounting\BillingInformation','assetable');
     }
     public function workspaces(){
         return $this->morphToMany('App\Models\Workspace\Workspace','memberable');
     }
-    public function timezone(){
-        return $this->belongsTo('App\Models\Timezone');
+    public function timezones(){
+        return $this->hasMany('App\Models\Location\Timezone');
     }
 }
