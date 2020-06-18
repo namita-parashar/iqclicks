@@ -27,8 +27,18 @@ class Workspace extends Model
     public function trackerOffers(){
         return $this->morphedByMany('App\Models\Tracker\Offers','assetable');
     }
+
+    public function users(){
+        return $this->morphedByMany('App\User','memberable');
+    }
+    public function teams(){
+        return $this->morphedByMany('App\Teams','memberable');
+    }
     public function trackerCampaigns(){
         return $this->hasMany('App\Models\Tracker\Campaigns');
+    }
+    public function agency(){
+        return $this->belongsTo('App\Models\Agencies','agency_id');
     }
 
 }

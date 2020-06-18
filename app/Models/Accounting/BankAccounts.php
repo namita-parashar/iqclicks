@@ -12,4 +12,13 @@ class BankAccounts extends Model
     public function affiliateAccount(){
         return $this->belongsTo('App\Models\Affiliate\Accounts','bank_account_id');
     }
+    public function invoices(){
+        return $this->hasMany('App\Models\Accounting\Invoices');
+    }
+    public function accountingCompany(){
+        return $this->belongsTo('App\Models\Accounting\Companies');
+    }
+    public function paymentProfile(){
+        return $this->hasMany('App\Models\Accounting\PaymentProfile');
+    }
 }

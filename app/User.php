@@ -58,4 +58,25 @@ class User extends Authenticatable
     public function affiliateOffers(){
         return $this->morphedByMany('App\Models\Affiliate\Offers','assetable');
     }
+     public function agencies(){
+        return $this->morphedByMany('App\Models\Agencies','assetable');
+    }
+    public function departments(){
+        return $this->morphedByMany('App\Models\Departments','assetable');
+    }
+    public function designations(){
+        return $this->morphedByMany('App\Models\Designations','assetable');
+    }
+    public function teams(){
+        return $this->morphedByMany('App\Models\Teams','assetable');
+    }
+    public function billingInformation(){
+        return $this->morphedByMany('App\Models\BillingInformation','assetable');
+    }
+    public function workspaces(){
+        return $this->morphToMany('App\Models\Workspace\Workspace','memberable');
+    }
+    public function timezone(){
+        return $this->belongsTo('App\Models\Timezone');
+    }
 }

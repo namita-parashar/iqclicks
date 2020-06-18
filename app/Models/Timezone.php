@@ -15,4 +15,7 @@ class Timezone extends Model
     public function trafficSources(){
         return $this->hasMany('App\Models\Affiliate\Network');
     }
+    public function users(){
+        return $this->hasMany('App\User');
+    }
 }
