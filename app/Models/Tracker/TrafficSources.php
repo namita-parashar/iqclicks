@@ -12,7 +12,16 @@ class TrafficSources extends Model
     public function trafficSourceAccount(){
       return $this->belongsTo('App\Models\TrafficSource\Accounts');
     }
+    public function trafficSources(){
+      return $this->hasMany('App\Models\TrafficSource\TrafficSource');
+    }
     public function trackerCampaign(){
       return $this->belongsTo('App\Models\Tracker\Campaigns');
-  }
+    }
+    public function workspaces(){
+      return $this->morphToMany('App\Models\Workspace\Workspace','assetable');
+    }
+    public function trackerCampaigns(){
+      return $this->hasMany('App\Models\Tracker\Campaigns');
+    }
 }

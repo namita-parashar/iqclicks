@@ -15,4 +15,7 @@ class AffiliateNetworks extends Model
     public function affiliateAccount(){
         return $this->belongsTo('App\Models\Affiliate\Account');
     }
+    public function workspaces(){
+        return $this->morphToMany('App\Models\Workspace\Workspace','assetable');
+    }
 }

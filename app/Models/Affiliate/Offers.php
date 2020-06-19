@@ -21,11 +21,14 @@ class Offers extends Model
     public function languages(){
         return $this->morphedByMany('App\Models\Languages','applicable');
     }
+    public function states(){
+        return $this->morphedByMany('App\Models\Location\State','applicable');
+    }
+   public function affiliateNetworks(){
+        return $this->morphedByMany('App\Models\Affiliate\Network','applicable');
+    }
     public function trackerOffers(){
         return $this->morphedByMany('App\Models\Tracker\Offers','assetable');
-    }
-    public function affiliateNetworks(){
-        return $this->morphedByMany('App\Models\Affiliate\Network','applicable');
     }
     public function workspaces(){
         return $this->morphToMany('App\Models\Workspace\Workspace','assetable');
@@ -36,7 +39,7 @@ class Offers extends Model
     public function trackerPaths(){
         return $this->morphToMany('App\Models\Tracker\Path','linkable');
     }
-    public function categories(){
+   public function categories(){
         return $this->belongsToMany('App\Models\Category\Category');
     }
 }

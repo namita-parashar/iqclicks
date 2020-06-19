@@ -15,7 +15,6 @@ class Accounts extends Model
     public function trackerCampaign(){
         return $this->belongsTo('App\Models\Tracker\Campaigns');
     }
-    
     public function trackerTrafficSources(){
         return $this->hasMany('App\Models\Tracker\TrafficSource');
     }

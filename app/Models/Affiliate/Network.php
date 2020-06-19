@@ -15,13 +15,6 @@ class Network extends Model
     public function offers(){
         return $this->morphToMany('App\Models\Affiliate\Offers','applicable');
     }
-
-    public function affiliateAccount(){
-        return $this->belongsTo('App\Models\Affiliate\Accounts','tracker_affiliate_network_id');
-    }
-    public function workspaces(){
-        return $this->morphToMany('App\Models\Workspace\Workspace','assetable');
-    }
     public function timezones(){
         return $this->hasMany('App\Models\Location\Timezone');
     }

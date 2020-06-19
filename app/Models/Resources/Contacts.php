@@ -9,7 +9,7 @@ class Contacts extends Model
     //
     protected $table = 'contacts';
 
-    public function domainProviders(){
-        return $this->hasMany('App/Models/Domain/Provider');
+    public function domainProvider(){
+        return $this->belongsTo('App/Models/Domain/Provider');
     }
 }

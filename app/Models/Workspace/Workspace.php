@@ -9,14 +9,14 @@ class Workspace extends Model
     //
     protected $table ='workspaces';
 
-    public function affiliateNetworks(){
-        return $this->morphedByMany('App\Models\Affiliate\Network','assetable');
+    public function trackerAffiliateNetworks(){
+        return $this->morphedByMany('App\Models\Tracker\NAffiliateNetwork','assetable');
     }
     public function affiliateAccounts(){
         return $this->morphedByMany('App\Models\Affiliate\Accounts','assetable');
     }
-    public function trafficSources(){
-        return $this->morphedByMany('App\Models\TrafficSource\TrafficSource','assetable');
+    public function trackerTrafficSources(){
+        return $this->morphedByMany('App\Models\Tracker\TrafficSource','assetable');
     }
     public function domains(){
         return $this->morphedByMany('App\Models\Domain\Domain','assetable');

@@ -12,7 +12,6 @@ class Country extends Model
     public function regions(){
     return $this->hasMany('App\Models\Location\Region');
     }
-
     public function state(){
         return $this->belongsTo('App\Models\Location\States');
     }
