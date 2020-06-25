@@ -70,7 +70,7 @@ class User extends Authenticatable
     public function teams(){
         return $this->morphedByMany('App\Models\Resources\Teams','assetable');
     }
-    public function billingInformation(){
+    public function billingInformations(){
         return $this->morphedByMany('App\Models\Accounting\BillingInformation','assetable');
     }
     public function workspaces(){
