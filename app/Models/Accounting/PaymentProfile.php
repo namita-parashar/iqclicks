@@ -16,9 +16,9 @@ class PaymentProfile extends Model
         return $this->belongsTo('App\Models\TrafficSource\TrafficSource','payment_profile_id');
     }
     public function invoice(){
-        return $this->belongsTo('App\Models\Accounting\Invoices');
+        return $this->belongsTo('App\Models\Accounting\Invoice');
     }
     public function bankAccounts(){
-        return $this->hasMany('App\Models\Accounting\BankAccounts');
+        return $this->hasMany('App\Models\Accounting\BankAccount');
     }
 }

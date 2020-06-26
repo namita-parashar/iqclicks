@@ -10,6 +10,6 @@ class Browser extends Model
     protected $table='browsers';
 
     public function version(){
-        return $this->belongsTo('App\Models\Browser\Verions');
+        return $this->belongsTo('App\Models\Browser\Version');
     }
 }

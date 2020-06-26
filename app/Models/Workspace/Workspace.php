@@ -13,7 +13,7 @@ class Workspace extends Model
         return $this->morphedByMany('App\Models\Tracker\NAffiliateNetwork','assetable');
     }
     public function affiliateAccounts(){
-        return $this->morphedByMany('App\Models\Affiliate\Accounts','assetable');
+        return $this->morphedByMany('App\Models\Affiliate\Account','assetable');
     }
     public function trackerTrafficSources(){
         return $this->morphedByMany('App\Models\Tracker\TrafficSource','assetable');
@@ -22,26 +22,26 @@ class Workspace extends Model
         return $this->morphedByMany('App\Models\Domain\Domain','assetable');
     }
     public function trackerLanders(){
-        return $this->morphedByMany('App\Models\Tracker\Landers','assetable');
+        return $this->morphedByMany('App\Models\Tracker\Lander','assetable');
     }
     public function trackerOffers(){
-        return $this->morphedByMany('App\Models\Tracker\Offers','assetable');
+        return $this->morphedByMany('App\Models\Tracker\Offer','assetable');
     }
 
     public function users(){
         return $this->morphedByMany('App\User','memberable');
     }
     public function teams(){
-        return $this->morphedByMany('App\Models\Resources\Teams','memberable');
+        return $this->morphedByMany('App\Models\Resource\Team','memberable');
     }
     public function trackerCampaign(){
-        return $this->belongsTo('App\Models\Tracker\Campaigns');
+        return $this->belongsTo('App\Models\Tracker\Campaign');
     }
     public function agencies(){
-        return $this->hasMany('App\Models\Agencies','agency_id');
+        return $this->hasMany('App\Models\Agency','agency_id');
     }
     public function trackerFlow(){
-        return $this->belongsTo('App\Models\Tracker\Flows');
+        return $this->belongsTo('App\Models\Tracker\Flow');
     }
 
 }

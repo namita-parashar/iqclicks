@@ -10,7 +10,7 @@ class Provider extends Model
     protected $table = 'domain_provider';
 
     public function contacts(){
-        return $this->hasMany('App\Models\Resources\Contacts');
+        return $this->hasMany('App\Models\Resourcs\Contact');
     }
     public function paymentProfiles(){
         return $this->hasMany('Apo\Models\Accounting\PaymentProfile');

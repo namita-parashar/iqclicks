@@ -13,19 +13,19 @@ class Country extends Model
     return $this->hasMany('App\Models\Location\Region');
     }
     public function state(){
-        return $this->belongsTo('App\Models\Location\States');
+        return $this->belongsTo('App\Models\Location\State');
     }
     public function offers(){
         return $this->morphToMany('App\Models\Location\Country','applicable');
     }
     public function trackerOffer(){
-        return $this->belongsTo('App\Models\Tracker\Offers');
+        return $this->belongsTo('App\Models\Tracker\Offer');
     }
     public function trackerLander(){
-        return $this->belongsTo('App\Models\Tracker\Landers','country_id');
+        return $this->belongsTo('App\Models\Tracker\Lander','country_id');
     }
     public function languages(){
-        return $this->belongsToMany('App\Models\Languages');
+        return $this->belongsToMany('App\Models\Language');
     }
 
 }

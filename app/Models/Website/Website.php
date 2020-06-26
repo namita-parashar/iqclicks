@@ -13,6 +13,6 @@ class Website extends Model
         return $this->morphedByMany('App\Models\Category\Category','relatable');
     }
     public function affiliateAccounts(){
-        return $this->morphedByMany('App\Models\Affiliate\Accounts','relatable');
+        return $this->morphedByMany('App\Models\Affiliate\Account','relatable');
     }
 }

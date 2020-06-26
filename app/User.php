@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function workspaceTrackerMemberAsset(){
-        return $this->belongsTo('App\Models\Workspace\WorkspaceTracker\MemberAssets');
+        return $this->belongsTo('App\Models\Workspace\WorkspaceTracker\MemberAsset');
     }
     public function affiliateNetworks(){
         return $this->morphedByMany('App\Models\Affiliate\Network','assetable');
@@ -53,22 +53,22 @@ class User extends Authenticatable
         return $this->morphedByMany('App\Models\Domain\Domain','assetable');
     }
     public function trackerLanders(){
-        return $this->morphedByMany('App\Models\Tracker\Landers','assetable');
+        return $this->morphedByMany('App\Models\Tracker\Lander','assetable');
     }
     public function affiliateOffers(){
-        return $this->morphedByMany('App\Models\Affiliate\Offers','assetable');
+        return $this->morphedByMany('App\Models\Affiliate\Offer','assetable');
     }
      public function agencies(){
-        return $this->morphedByMany('App\Models\Agencies','assetable');
+        return $this->morphedByMany('App\Models\Agency','assetable');
     }
     public function departments(){
-        return $this->morphedByMany('App\Models\Resources\Departments','assetable');
+        return $this->morphedByMany('App\Models\Resource\Department','assetable');
     }
     public function designations(){
-        return $this->morphedByMany('App\Models\Resources\Designations','assetable');
+        return $this->morphedByMany('App\Models\Resource\Designation','assetable');
     }
     public function teams(){
-        return $this->morphedByMany('App\Models\Resources\Teams','assetable');
+        return $this->morphedByMany('App\Models\Resource\Team','assetable');
     }
     public function billingInformations(){
         return $this->morphedByMany('App\Models\Accounting\BillingInformation','assetable');

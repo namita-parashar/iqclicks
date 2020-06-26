@@ -1,12 +1,12 @@
 <?php 
 namespace App\Helpers\Tracker;
 
-use App\Modeles\Tracker\TrafficSources;
-use App\Modeles\Tracker\TrafficSourceParameters;
+use App\Modeles\Tracker\TrafficSource;
+use App\Modeles\Tracker\TrafficSourceParameter;
 
 class TrafficSourceParameterHelper{
 
-    public static function create(TrafficSources $tracker_traffic_source,$data=[]){
+    public static function create(TrafficSource $tracker_traffic_source,$data=[]){
         $traffic_source_parameter = new TrafficSourceParameters;
         $traffic_source_parameter->ts_name = $data['name'] ?? "Untitled";
         $traffic_source_parameter->ts_parameter = $data['parameter'] ?? "Untitled";
@@ -17,7 +17,7 @@ class TrafficSourceParameterHelper{
         return $traffic_source_parameter;
     }
 
-    public static function update(TrafficSourceParameters $traffic_source_parameter , TrafficSources $tracker_traffic_source,$data=[]){
+    public static function update(TrafficSourceParameter $traffic_source_parameter , TrafficSource $tracker_traffic_source,$data=[]){
         $traffic_source_parameter->ts_name = $data['name'] ?? $traffic_source_parameter->ts_name;
         $traffic_source_parameter->ts_parameter = $data['parameter'] ?? $traffic_source_parameter->ts_parameter;
         $traffic_source_parameter->ts_token = $data['ts_token'] ?? $traffic_source_parameter->ts_token;
@@ -27,7 +27,7 @@ class TrafficSourceParameterHelper{
         return $traffic_source_parameter;
     }
 
-    public static function delete(TrafficSourceParameters $traffic_source_parameter ){
+    public static function delete(TrafficSourceParameter $traffic_source_parameter ){
         return $traffic_source_parameter->delete();
     }
 

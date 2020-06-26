@@ -10,9 +10,9 @@ class Attachment extends Model
     protected $table = 'attachment';
     
     public function invoice(){
-        return $this->belongsTo('App\Models\Accounting\Invoices');
+        return $this->belongsTo('App\Models\Accounting\Invoice');
     }
     public function accountingBook(){
-        return $this->belongsTo('App\Models\Accounting\Books');
+        return $this->belongsTo('App\Models\Accounting\Book');
     }
 }

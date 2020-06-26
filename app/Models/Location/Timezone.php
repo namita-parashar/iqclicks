@@ -13,7 +13,7 @@ class Timezone extends Model
         return $this->belongsTo('App\Models\Affiliate\Network');
     }
     public function trafficSource(){
-        return $this->belongsTo('App\Models\Traffic\TrafficSources');
+        return $this->belongsTo('App\Models\Traffic\TrafficSource');
     }
     public function user(){
         return $this->belongsTo('App\User');

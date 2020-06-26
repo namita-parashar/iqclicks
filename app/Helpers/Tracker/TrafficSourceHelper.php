@@ -1,15 +1,15 @@
 <?php 
 namespace App\Helpers\Tracker;
 
-use App\Models\Agencies;
+use App\Models\Agency;
 use App\Models\Location\Timezone;
 use App\Models\TrafficSource\TrafficSource;
-use App\Modeles\Tracker\TrafficSources;
+use App\Models\Tracker\TrafficSource as TrackerTrafficSource;
 
 class TrafficSourceHelper{
 
-    public static function create(TrafficSource $traffic_source,Agencies $agency,Timezone $timezone,$data=[]){
-        $tracker_traffic_source = new TrafficSources;
+    public static function create(TrafficSource $traffic_source,Agency $agency,Timezone $timezone,$data=[]){
+        $tracker_traffic_source = new TrackerTrafficSource;
         $tracker_traffic_source->name = $data['name'] ?? "Untitled";
         $tracker_traffic_source->currency = $data['currency'] ?? "Untitled";
         $tracker_traffic_source->postback_url = $data['postback_url'] ?? "Untitled";
@@ -22,7 +22,7 @@ class TrafficSourceHelper{
 
     }
 
-    public static function update(TrafficSources $tracker_traffic_source,TrafficSource $traffic_source,Agencies $agency,Timezone $timezone,$data=[]){
+    public static function update(TrackerTrafficSource $tracker_traffic_source,TrafficSource $traffic_source,Agency $agency,Timezone $timezone,$data=[]){
         $tracker_traffic_source->name = $data['name'] ?? $tracker_traffic_source->name;
         $tracker_traffic_source->currency = $data['currency'] ??  $tracker_traffic_source->currency;
         $tracker_traffic_source->postback_url = $data['postback_url'] ?? $tracker_traffic_source->postback_url;
@@ -33,7 +33,7 @@ class TrafficSourceHelper{
         $tracker_traffic_source->save();
         return $tracker_traffic_source;
     }
-    public function delete(TrafficSources $tracker_traffic_source){
+    public function delete(TrackerTrafficSource $tracker_traffic_source){
         return $tracker_traffic_source->delete();
     }
 }

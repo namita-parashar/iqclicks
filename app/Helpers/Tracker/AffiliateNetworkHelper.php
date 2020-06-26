@@ -4,11 +4,11 @@ namespace App\Helpers\Tracker;
 use App\Models\Affiliate\Network;
 use App\Models\Agencies;
 use App\Models\Location\Timezone;
-use App\Models\Tracker\AffiliateNetworks;
+use App\Models\Tracker\AffiliateNetwork;
 
 class AffiliateNetworkHelper{
     
-    public static function create(Network $network,Agencies $agency,Timezone $timezone , $data=[]){
+    public static function create(Network $network,Agency $agency,Timezone $timezone , $data=[]){
         $tracker_affiliate_network = new AffiliateNetworks;
         $tracker_affiliate_network->name = $data['name'] ?? "Untitled";
         $tracker_affiliate_network->currency = $data['currency'] ?? "Untitled";
@@ -25,7 +25,7 @@ class AffiliateNetworkHelper{
         
     }
 
-    public static function update(AffiliateNetworks $tracker_affiliate_network,Network $network,Agencies $agency,Timezone $timezone , $data=[]){
+    public static function update(AffiliateNetworks $tracker_affiliate_network,Network $network,Agency $agency,Timezone $timezone , $data=[]){
         $tracker_affiliate_network->name = $data['name'] ?? $tracker_affiliate_network->name;
         $tracker_affiliate_network->currency = $data['currency'] ?? $tracker_affiliate_network->currency;
         $tracker_affiliate_network->postback_url = $data['postback_url'] ?? $tracker_affiliate_network->postback_url;

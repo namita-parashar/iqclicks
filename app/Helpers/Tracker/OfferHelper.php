@@ -1,13 +1,13 @@
 <?php 
 namespace App\Helpers\Tracker;
 
-use App\Models\Tracker\Offers;
-use App\Models\Location\Countries;
+use App\Models\Tracker\Offer;
+use App\Models\Location\Country;
 use App\Models\Tracker\AffiliateNetwork;
 
 class OfferHelper{
     
-    public static function create(Countries $country, AffiliateNetwork $tracker_affiliate_network,$data=[]){
+    public static function create(Country $country, AffiliateNetwork $tracker_affiliate_network,$data=[]){
         $tracker_offer = new Offers;
         $tracker_offer->name = $data['name'] ?? "";
         $tracker_offer->offer_url = $data['offer_ur;'] ?? "";
@@ -17,7 +17,7 @@ class OfferHelper{
         return $tracker_offer;
     }
 
-    public static function update(Offers $tracker_offer, Countries $country, AffiliateNetwork $tracker_affiliate_network,$data=[]){
+    public static function update(Offer $tracker_offer, Country $country, AffiliateNetwork $tracker_affiliate_network,$data=[]){
         $tracker_offer->name = $data['name'] ?? "";
         $tracker_offer->offer_url = $data['offer_ur;'] ?? "";
         $tracker_offer->country_id = $country->id;
@@ -26,7 +26,7 @@ class OfferHelper{
         return $tracker_offer;
     }
 
-    public static function delete(Offers $tracker_offer){
+    public static function delete(Offer $tracker_offer){
         return $tracker_offer->delete();
     }
 }
