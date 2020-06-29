@@ -10,7 +10,7 @@ class Workspace extends Model
     protected $table ='workspaces';
 
     public function trackerAffiliateNetworks(){
-        return $this->morphedByMany('App\Models\Tracker\NAffiliateNetwork','assetable');
+        return $this->morphedByMany('App\Models\Tracker\AffiliateNetwork','assetable');
     }
     public function affiliateAccounts(){
         return $this->morphedByMany('App\Models\Affiliate\Account','assetable');

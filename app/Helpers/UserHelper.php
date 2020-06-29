@@ -3,10 +3,16 @@ namespace App\Helpers;
 
 use App\User;
 use App\Models\Location\Timezone;
+use App\Models\Tracker\AffiliateNetwork;
+use App\Models\Tracker\TrafficSource;
+use App\Models\Affiliate\Account;
+use App\Models\Domain\Domain;
+use App\Models\Tracker\Lander;
+use App\Models\Tracker\Offer;
 
 class UserHelper{
 
-    public static function create(Timezone $timzone,$data=[]){
+    public static function create(Timezone $timzone,AffiliateNetwork $affiliate_network = null,TrafficSource $traffic_source = null,Account $account= null,Domain $domain= null,Lander $lander= null,Offer $offer= null,$data=[]){
         $user = new User;
         $user->name = $data['name'] ?? "";
         $user->username = $data['username'] ?? "";
@@ -18,6 +24,12 @@ class UserHelper{
         $user->timezone_id = $timezone->id;
         $user->notes = $data['notes'] ?? "";
         $user->save();
+        $affiliate_network->workspaces()->sync([$user->id]);
+        $traffic_source->workspaces()->sync([$user->id]);
+        $account->workspaces()->sync([$user->id]);
+        $domain->workspaces()->sync([$user->id]);
+        $lander->workspaces()->sync([$user->id]);
+        $offer->workspaces()->sync([$user->id]);
         return $user;
     }
 

@@ -16,8 +16,10 @@ class IntegrationHelper{
         $integration->category = $data['category']  ?? "";
         $integration->logo = $data['logo'] ?? "";
         $integration->description = $data['description'] ?? "";
-        // $affiliate_account->integrations()->save($integration);
         $integration->save();
+        $affiliate_account->integrations()->sync([$integration->id]);
+        $traffic_source_account->integrations()->sync([$integration->id]);
+        $domainProviders->integrations()->sync([$integration->id]);
         return $integration;
     }
 
