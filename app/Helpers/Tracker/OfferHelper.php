@@ -14,6 +14,7 @@ class OfferHelper{
         $tracker_offer->country_id = $country->id;
         $tracker_offer->affiliate_network_id  = $tracker_affiliate_network->id;
         $tracker_offer->save();
+        $tracker_offer->affiliateAccounts()->sync([$tracker_offer->id]);
         return $tracker_offer;
     }
 

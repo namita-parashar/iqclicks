@@ -16,6 +16,7 @@ class FlowHelper{
         $flow->lander_id = $lander->id;
         $flow->workspace_id = $workspace->id;
         $flow->save();
+        $flow->trackerRules()->sync([$flow->id]);
         return $flow;
     }
 

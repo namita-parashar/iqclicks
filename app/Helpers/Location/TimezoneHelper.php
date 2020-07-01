@@ -6,6 +6,10 @@ use App\Models\Location\Timezone;
 
 class TimezoneHelper{
 
+    public static function read(){
+        $timezone = Timezone::get();
+        return $timezone;
+    }
     public static function create($data=[]){
         $timezone = new Timezone;
         $timezone->timezone = $data['timezone'] ?? "";

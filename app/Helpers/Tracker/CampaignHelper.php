@@ -26,6 +26,8 @@ class CampaignHelper{
         $campaign->tracker_ts_id = $traffic_source->id;
         $campaign->ts_account_id = $account->id;
         $campaign->save();
+        $campaign->trackerRules()->sync([$campaign->id]);
+        $campaign->landers()->sync([$campaign->id]);
         return $campaign;
     }
 

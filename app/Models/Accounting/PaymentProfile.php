@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentProfile extends Model
 {
     //
-    protected $table = 'payment_profile';
+    protected $table = 'payment_profiles';
 
     public function domainProvider(){
         return $this->belongsTo('App/Models/Domain/Provider');

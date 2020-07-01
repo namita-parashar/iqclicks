@@ -6,6 +6,10 @@ use App\Models\Location\Timezone;
 
 class NetworkHelper{
 
+    public static function read(){
+        $affiliate_network =  Network::get();
+        return $affiliate_network;
+    }
     public static function create(Timezone $timezone , $data=[]){
         $affiliate_network = new Network;
         $affiliate_network->name = $data["name"] ?? "Untitled";

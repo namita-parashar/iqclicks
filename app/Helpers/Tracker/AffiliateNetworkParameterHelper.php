@@ -6,7 +6,7 @@ use App\Models\Tracker\AffiliateNetworkParameter;
 
 class AffiliateNetworkParameterHelper{
     public static function create(AffiliateNetwork $tracker_affiliate_network,$data=[]){
-        $tracker_affiliate_network_parameter = AffiliateNetworkParameter;
+        $tracker_affiliate_network_parameter = new AffiliateNetworkParameter;
         $tracker_affiliate_network_parameter->network_id = $tracker_affiliate_network->id;
         $tracker_affiliate_network_parameter->aff_name = $data['name'] ?? "Untitled";
         $tracker_affiliate_network_parameter->aff_parameter = $data['parameter'] ?? "Untitled";

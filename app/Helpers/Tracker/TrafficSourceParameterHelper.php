@@ -1,13 +1,13 @@
 <?php 
 namespace App\Helpers\Tracker;
 
-use App\Modeles\Tracker\TrafficSource;
-use App\Modeles\Tracker\TrafficSourceParameter;
+use App\Models\Tracker\TrafficSource;
+use App\Models\Tracker\TrafficSourceParameter;
 
 class TrafficSourceParameterHelper{
 
     public static function create(TrafficSource $tracker_traffic_source,$data=[]){
-        $traffic_source_parameter = new TrafficSourceParameters;
+        $traffic_source_parameter = new TrafficSourceParameter;
         $traffic_source_parameter->ts_name = $data['name'] ?? "Untitled";
         $traffic_source_parameter->ts_parameter = $data['parameter'] ?? "Untitled";
         $traffic_source_parameter->ts_token = $data['ts_token'] ?? "Untitled";

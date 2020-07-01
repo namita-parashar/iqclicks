@@ -6,7 +6,7 @@ use App\Models\Location\Timezone;
 
 class TrafficSourceHelper{
 
-    public function create(Timezone $timezone,$data=[]){
+    public static function create(Timezone $timezone,$data=[]){
         $traffic_source = new TrafficSource;
         $traffic_source->name = $data["name"] ?? "Untitled";
         $traffic_source->currency = $data["currency"] ?? "Untitled";

@@ -9,10 +9,17 @@ use App\Models\Affiliate\Account;
 use App\Models\Domain\Domain;
 use App\Models\Tracker\Lander;
 use App\Models\Tracker\Offer;
+use App\Models\Agency;
+use App\Models\Resource\Department;
+use App\Models\Resource\Designation;
+use App\Models\Resource\Team;
+use App\Models\Accounting\BillingInformation;
 
 class UserHelper{
-
-    public static function create(Timezone $timzone,AffiliateNetwork $affiliate_network = null,TrafficSource $traffic_source = null,Account $account= null,Domain $domain= null,Lander $lander= null,Offer $offer= null,$data=[]){
+    
+    public static function create(Timezone $timzone,AffiliateNetwork $affiliate_network = null,
+    TrafficSource $traffic_source = null,Account $account= null,Domain $domain= null,Lander $lander= null,
+    Offer $offer=null,Agency $agency= null,Department $department=null,Designation $designation=null,Team $team=null,BillingInformation $billlinginformation = null,$data=[]){
         $user = new User;
         $user->name = $data['name'] ?? "";
         $user->username = $data['username'] ?? "";
@@ -30,6 +37,12 @@ class UserHelper{
         $domain->workspaces()->sync([$user->id]);
         $lander->workspaces()->sync([$user->id]);
         $offer->workspaces()->sync([$user->id]);
+
+        $agency->workspaces()->sync([$user->id]);
+        $department->workspaces()->sync([$user->id]);
+        $designation->workspaces()->sync([$user->id]);
+        $team->workspaces()->sync([$user->id]);
+        $billlinginformation->workspaces()->sync([$user->id]);
         return $user;
     }
 

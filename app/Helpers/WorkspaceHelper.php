@@ -9,10 +9,12 @@ use App\Models\Affiliate\Account;
 use App\Models\Domain\Domain;
 use App\Models\Tracker\Lander;
 use App\Models\Tracker\Offer;
+use App\User;
+use App\Models\Resource\Team;
 
 class WorkspaceHelper{
 
-    public static function create(Agency $agency,AffiliateNetwork $affiliate_network = null,TrafficSource $traffic_source = null,Account $account= null,Domain $domain= null,Lander $lander= null,Offer $offer= null,$data = []){
+    public static function create(Agency $agency,AffiliateNetwork $affiliate_network = null,TrafficSource $traffic_source = null,Account $account= null,Domain $domain= null,Lander $lander= null,Offer $offer= null,User $user=null,Team $team=null,$data = []){
         $workspace = new Workspace;
         $workspace->name = $data['name'] ?? "";
         $workspace->description = $data['description'] ?? "";
@@ -24,6 +26,8 @@ class WorkspaceHelper{
         $domain->workspaces()->sync([$workspace->id]);
         $lander->workspaces()->sync([$workspace->id]);
         $offer->workspaces()->sync([$workspace->id]);
+        $user->workspaces()->sync([$workspace->id]);
+        $team->workspaces()->sync([$workspace->id]);
         return $workspace;
     }
     public static function update(Workspace $workspace,Agency $agency,$data = []){

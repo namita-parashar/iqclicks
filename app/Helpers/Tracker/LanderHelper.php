@@ -18,6 +18,7 @@ class LanderHelper{
         $tracker_lander->is_redirectless = $data['is_redirectless'] ?? '1';
         $tracker_lander->notes = $data['notes'] ?? "";
         $tracker_lander->save();
+        $tracker_lander->affiliateOffers()->sync([$tracker_lander->id]);
         return $tracker_lander;
     }
 

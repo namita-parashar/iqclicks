@@ -16,6 +16,7 @@ class AccountHelper{
         $affiliate_accounts->bank_account_id = $bank_account->id;
         $affiliate_accounts->agency_id = $agency->id;
         $affiliate_accounts->save();
+        $affiliate_accounts->trackerOffers()->sync([$affiliate_accounts->id]);
         return $affiliate_accounts;
     }
 

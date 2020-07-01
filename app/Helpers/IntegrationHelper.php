@@ -10,7 +10,7 @@ use App\Models\Domain\Provider;
 
 class IntegrationHelper{
 
-    public static function create(AffiliateAccounts $affiliate_account,Account  $traffic_source_account,Provider $provider, $data=[]){
+    public static function create(AffiliateAccounts $affiliate_account=null,Account $traffic_source_account= null,Provider $provider= null, $data=[]){
         $integration = new Integration;
         $integration->name = $data['name'] ?? "";
         $integration->category = $data['category']  ?? "";
@@ -19,7 +19,7 @@ class IntegrationHelper{
         $integration->save();
         $affiliate_account->integrations()->sync([$integration->id]);
         $traffic_source_account->integrations()->sync([$integration->id]);
-        $domainProviders->integrations()->sync([$integration->id]);
+        $provider->integrations()->sync([$integration->id]);
         return $integration;
     }
 

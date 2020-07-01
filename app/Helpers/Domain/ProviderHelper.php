@@ -3,13 +3,13 @@
 namespace App\Helpers\Domain;
 
 use App\Models\Domain\Provider;
-use App\Models\Resources\Contacts;
+use App\Models\Resource\Contact;
 use App\Models\Integration\Integration;
-use App\Modles\Accounting\PaymentProfile;
+use App\Models\Accounting\PaymentProfile;
 
 class ProviderHelper{
 
-    public function create(Contacts $contact , Intgration $integration , PaymentProfile $payment_profile , $data=[]){
+    public static function create(Contact $contact , Integration $integration , PaymentProfile $payment_profile , $data=[]){
         $provider = new Provider;
         $provider->account_name = $data['account_name'] ?? "Untitled";
         $provider->email = $data['email'] ?? "";
@@ -24,7 +24,7 @@ class ProviderHelper{
         return $provider;
     }
 
-    public static function update(Provider $provider, Contacts $contact, Intgration $integration , PaymentProfile $payment_profile , $data=[]){
+    public static function update(Provider $provider, Contact $contact, Integration $integration , PaymentProfile $payment_profile , $data=[]){
         $provider->account_name = $data['account_name'] ?? $provider->account_name;
         $provider->email = $data['email'] ?? $provider->email;
         $provider->password = $data['password'] ?? $provider->password;
